@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Comment:
+  = @memo.comment
+%p
+  %b Writer:
+  = @memo.writer
+%p
+  %b Start at:
+  = @memo.start_at
+
+= link_to 'Edit', edit_memo_path(@memo)
+\|
+= link_to 'Back', memos_path
