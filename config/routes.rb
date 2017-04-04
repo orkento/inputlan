@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
-  resources :memos
+  root to: 'memos#pick_up'
+  resources :memos do
+    collection do
+      get :pick_up
+    end
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

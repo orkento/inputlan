@@ -1,6 +1,15 @@
 class MemosController < ApplicationController
   before_action :set_memo, only: [:show, :edit, :update, :destroy]
 
+  def pick_up
+    today = Date.today
+    @memos = Memo.where(start_at: [
+                        today.yesterday,
+                        today.prev_day(7),
+                        today.prev_month,
+                        today.prev_year]);
+  end
+
   # GET /memos
   # GET /memos.json
   def index
